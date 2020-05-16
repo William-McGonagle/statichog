@@ -1,6 +1,6 @@
 # StaticHog
 
-[NPM](https://william-mcgonagle.github.io) [Github](https://william-mcgonagle.github.io)
+[NPM](https://www.npmjs.com/package/statichog) [Github](https://github.com/William-McGonagle/statichog)
 
 StaticHog allows users to quickly generate huge static websites through template pages and cast documents.
 
