@@ -1,7 +1,12 @@
 
 USAGE
 
+  look at the documentation for this system on Github.
 
+  the first argument is the relative path to the template document
+  the second argument is the relative path to the cast document
+
+  the output is in standard out, so you can pipe it into another command, or into a file as shown below.
 
 EXAMPLE
 
