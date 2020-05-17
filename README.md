@@ -12,6 +12,59 @@ StaticHog allows users to quickly generate huge static websites through template
 
 The current release lets users create a JSON tree as a cast for the template. The template is a piece of HTML that contains elements with id attributes. These ID attributes will be the same as the keys in the cast JSON object.
 
+The current release also has support for computed file. This can be used for cases where the user wants to manipulate their page information in any way they want.
+
+## compute
+*The compute command is used to quickly fill out the template page using information provided by the cast, and the Javascript on the template page. This is very similar to how PHP works, except it is using Javascript, and it returns a static webpage, so PHP ideas like session variables will not work.*
+
+### Scripts
+
+Scripts are used just like PHP. In the html, use `<?hog` to start out the hog code, and to end it, just type `?>`. When using scripts, replacement is not allowed. This means that you cannot use %text% in the template because it will not be replaced by anything. But, if you still want that to be changed to the cast text, just replace %text% with `<?hog output = cast.text; ?>`. The compute system allows the same exact functionality as the replace system, but with a lot more functionality. Now, you can do things like the example below.
+
+```Javascript
+<?hog
+
+  var title = cast.blogTitle;
+  var titleLength = title.length;
+
+  output = "Blog title is ${title}, and its length is ${titleLength}.";
+
+?>
+```
+
+Another example (below) is array manipulation done with hog script.
+
+```Javascript
+<?hog
+
+  var a = cast.joinVar; // Variables from cast can be used
+
+  console.log("Hey!"); // This wont return anything
+
+  // The only way to give output is with setting the output variable
+  output = new Array(60).join(a);
+
+?>
+```
+
+Hog scripts that reference other hog scripts also work as expected. This technique is known as hog chaining. This is shown in the example below.
+
+```Javascript
+<?hog
+
+  var hogText = "Oink";
+
+?>
+<?hog
+
+  output = "The last hog said: " + hogText;
+
+?>
+```
+
+## replace
+*The replace command is used to quickly fill out the template page with whatever text you want. This can be very useful for filling out boilerplate webpages.*
+
 ### For the title
 
 The title is possibly the simplest part of the replacement process. Simply put %key% in the title, and the string that is connected to this key will replace it.

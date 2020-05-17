@@ -1,6 +1,6 @@
 {
   "name": "statichog",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple tool that lets users create blogs on static hosting services.",
   "main": "index.js",
   "bin": {
