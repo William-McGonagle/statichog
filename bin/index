@@ -1,43 +1,47 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
-const path = require("path");
-const HTMLParser = require('node-html-parser');
 
-var fileData = HTMLParser.parse(fs.readFileSync(path.join(process.cwd(), process.argv[2])).toString());
-var castData = JSON.parse(fs.readFileSync(path.join(process.cwd(), process.argv[3])).toString());
+switch (process.argv[2]) {
+  case "replace":
+    // Run the replace command
+    var replace = require("../src/replace.js");
 
-for (var item in castData) {
+    var commandOutput = replace.run();
 
-  var itemType = typeof(castData[item]);
+    if (commandOutput == -1) return process.stdout.write(fs.readFileSync(__dirname + "/../help/replace"));
 
-  switch (itemType) {
-    case "object":
+    process.stdout.write(commandOutput);
 
-      var domItem = fileData.querySelector('#body');
+    break;
+  case "compute":
+    // Run the replace command
+    var compute = require("../src/compute.js");
+    var commandOutput = compute.run();
 
-      if (domItem !== null) {
+    if (commandOutput == -1) return process.stdout.write(fs.readFileSync(__dirname + "/../help/compute"));
 
-        for (var i = 0; i < castData[item].length; i++) {
+    process.stdout.write(commandOutput);
 
-          var domAppend = HTMLParser.parse(castData[item][i]);
-          domItem.appendChild(domAppend);
+    break;
+  case "batchReplace":
+    // Run the replace command
+    var replace = require("../src/replace.js");
+    replace.run();
+    break;
+  case "batchCompute":
+    // Run the replace command
+    var replace = require("../src/replace.js");
+    replace.run();
+    break;
+  case "help":
+    // Give them some help messages
 
-        }
+    if (process.argv[3] == undefined)
+      return process.stdout.write(fs.readFileSync(__dirname + "/../help/general"));
 
-      }
-
-      break;
-    case "string":
-
-      fileData.querySelector('#' + item).set_content(castData[item]);
-      fileData.querySelector('title').set_content(fileData.querySelector('title').childNodes[0].rawText.split("%" + item + "%").join(castData[item]));
-
-      break;
-    default:
-
-  }
-
+    process.stdout.write(fs.readFileSync(__dirname + "/../help/" + process.argv[3]));
+    break;
+  default:
+    process.stdout.write(fs.readFileSync(__dirname + "/../help/general"));
 }
-
-process.stdout.write(fileData.toString());

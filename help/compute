@@ -1,0 +1,8 @@
+
+USAGE
+
+
+
+EXAMPLE
+
+  statichog compute template.html cast.json > output.html
