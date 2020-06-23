@@ -8,6 +8,18 @@ StaticHog allows users to quickly generate huge static websites through template
 
 `npm install -g statichog`
 
+## Author and License
+
+This was created by William McGonagle and is licensed under the ISC license. If you want to edit the code for yourself, you can. But, you have to give all credits for the code that I wrote and the idea, to me.
+
+[William's Website](https://william-mcgonagle.github.io)
+
+[William's Github](https://github.com/William-McGonagle)
+
+[William's Twitter](https://twitter.com/WilliamMcGona11)
+
+[William's Facebook](https://www.facebook.com/william.mcgonagle.520/)
+
 ## Current Release
 
 The current release lets users create a JSON tree as a cast for the template. The template is a piece of HTML that contains elements with id attributes. These ID attributes will be the same as the keys in the cast JSON object.
@@ -145,20 +157,59 @@ Say you have the body of your blog, and you want to have h3 tags and p tags. Wha
 </div>
 ```
 
+## Metatags
+For the meta tags, add to the cast with an object called `meta`. Fill the `meta` object with a few strings, like shown below. Then, run the command, and all major media sites should now be able to display your page in a simplified way. **Note:** your html page MUST have a `head`. If the page does not have a `head`, the program will crash.
+
+**Cast**
+
+```JSON
+
+{
+  "meta": {
+    "title": "William's Website",
+    "description": "This is a simple little website",
+    "twitter": "@WilliamMcGona11",
+    "alt": "A cute picture of a cat",  
+    "url": "http://www.william.com/",
+    "image": "http://www.placekitten.com/"
+  }
+}
+
+```
+
+**Template**
+
+```HTML
+
+<head>
+  <title>Some Random Title</title>
+</head>
+
+```
+
+**Result**
+
+```HTML
+
+<head>
+  <title>Some Random Title</title>
+  <meta name="twitter:card" content="summary">
+  <meta property="og:type" content="website" >
+  <meta name="twitter:title" content="William's Website">
+  <meta property="og:title" content="William's Website" >
+  <meta name="twitter:description" content="This is a simple little website">
+  <meta property="og:description" content="This is a simple little website" >
+  <meta name="twitter:site" content="@WilliamMcGona11">
+  <meta name="ttwitter:creator" content="@WilliamMcGona11">
+  <meta name="twitter:image:alt" content="A cute picture of a cat">
+  <meta property="og:image:alt" content="A cute picture of a cat" >
+  <meta name="og:url" content="http://www.william.com/">
+  <meta name="twitter:image" content="http://www.placekitten.com/">
+  <meta property="og:image" content="http://www.placekitten.com/" >
+</head>
+
+```
+
 ## Future Releases
 
-In future releases, simple Javascript parsing may be added so that web pages can be generated even more flexibly. This would work very similar to PHP where there would be `<?blog console.log("hey"); ?>` tags, except each 'code-block' would most-likely not have any concurrent data.
-
-Also, bulk generation may be added so that entire static websites can be generated at once. This would possibly work in tandem with SQL databases, or CSV datasets. This would allow for a simpler processing of data, and a much smaller amount of repetition for the generation of JSON files.
-
-## Author and License
-
-This was created by William McGonagle and is licensed under the ISC license. If you want to edit the code for yourself, you can. But, you have to give all credits for the code that I wrote and the idea, to me.
-
-[William's Website](https://william-mcgonagle.github.io)
-
-[William's Github](https://github.com/William-McGonagle)
-
-[William's Twitter](https://twitter.com/WilliamMcGona11)
-
-[William's Facebook](https://www.facebook.com/william.mcgonagle.520/)
+Bulk generation may be added so that entire static websites can be generated at once. This would possibly work in tandem with SQL databases, or CSV datasets. This would allow for a simpler processing of data, and a much smaller amount of repetition for the generation of JSON files.
