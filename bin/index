@@ -26,13 +26,15 @@ switch (process.argv[2]) {
     break;
   case "batchReplace":
     // Run the replace command
-    var replace = require("../src/replace.js");
-    replace.run();
+
+    return process.stdout.write(fs.readFileSync(__dirname + "/../help/batchReplace"));
+
     break;
   case "batchCompute":
     // Run the replace command
-    var replace = require("../src/replace.js");
-    replace.run();
+
+    return process.stdout.write(fs.readFileSync(__dirname + "/../help/batchCompute"));
+
     break;
   case "help":
     // Give them some help messages

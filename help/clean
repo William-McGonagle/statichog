@@ -1,0 +1,12 @@
+
+USAGE
+
+  whenever you want to slim down the amount of requests that your static page provider is getting sent, you can condense these resources into a single response. this tool does just that.
+
+  the first argument is just the relative path to the resource that you want to be condenced.
+  statichog will take this resource, and any references that it has, and condence them all together into a single page.
+  this resource must be structured as an HTML file.
+
+EXAMPLE
+
+  statichog clean input.html > output.html

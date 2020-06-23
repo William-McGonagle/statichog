@@ -1,3 +1,11 @@
 {
-  "title": "cool"
+  "title": "cool",
+  "meta": {
+    "title": "Test Website",
+    "twitter": "@WilliamMcGona11",
+    "description": "This is a basic test website.",
+    "image": "http://www.placekitten.com/400/400/",
+    "alt": "A nice little kitten.",
+    "url": ""
+  }
 }
