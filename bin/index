@@ -14,6 +14,17 @@ switch (process.argv[2]) {
     process.stdout.write(commandOutput);
 
     break;
+  case "meta":
+    // Run the replace command
+    var meta = require("../src/metadata.js");
+
+    var commandOutput = meta.run();
+
+    if (commandOutput == -1) return process.stdout.write(fs.readFileSync(__dirname + "/../help/meta"));
+
+    process.stdout.write(commandOutput);
+
+    break;
   case "compute":
     // Run the replace command
     var compute = require("../src/compute.js");

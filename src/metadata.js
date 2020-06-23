@@ -16,8 +16,8 @@ function runCommand() {
 
   var head = fileData.querySelector("head");
 
-  var twitterCard = HTMLParse.parse(`<meta name="twitter:card" content="summary"/>`);
-  var ogType = HTMLParse.parse(`<meta property="og:type" content="website" />`);
+  var twitterCard = HTMLParser.parse(`<meta name="twitter:card" content="summary"/>`);
+  var ogType = HTMLParser.parse(`<meta property="og:type" content="website" />`);
 
   head.appendChild(twitterCard);
   head.appendChild(ogType);
@@ -28,62 +28,62 @@ function runCommand() {
       case "title":
 
       // twitter title
-      var tempItem = HTMLParse.parse(`<meta name="twitter:title" content="${castData.meta[metaTag]}"/>`);
+      var tempItem = HTMLParser.parse(`<meta name="twitter:title" content="${castData.meta[metaTag]}"/>\n`);
       head.appendChild(tempItem);
 
       // opengraph title
-      var tempItem2 = HTMLParse.parse(`<meta property="og:title" content="${castData.meta[metaTag]}" />`);
+      var tempItem2 = HTMLParser.parse(`<meta property="og:title" content="${castData.meta[metaTag]}" />\n`);
       head.appendChild(tempItem2);
 
         break;
       case "twitter":
 
       // Site Twitter Account
-      var tempItem = HTMLParse.parse(`<meta name="twitter:site" content="${castData.meta[metaTag]}"/>`);
+      var tempItem = HTMLParser.parse(`<meta name="twitter:site" content="${castData.meta[metaTag]}"/>\n`);
       head.appendChild(tempItem);
 
       // Creator Twitter Account
-      var tempItem2 = HTMLParse.parse(`<meta name="ttwitter:creator" content="${castData.meta[metaTag]}"/>`);
+      var tempItem2 = HTMLParser.parse(`<meta name="ttwitter:creator" content="${castData.meta[metaTag]}"/>\n`);
       head.appendChild(tempItem2);
 
         break;
       case "description":
 
       // twitter description
-      var tempItem = HTMLParse.parse(`<meta name="twitter:description" content="${castData.meta[metaTag]}"/>`);
+      var tempItem = HTMLParser.parse(`<meta name="twitter:description" content="${castData.meta[metaTag]}"/>\n`);
       head.appendChild(tempItem);
 
       // opengraph description
-      var tempItem2 = HTMLParse.parse(`<meta property="og:description" content="${castData.meta[metaTag]}" />`);
+      var tempItem2 = HTMLParser.parse(`<meta property="og:description" content="${castData.meta[metaTag]}" />\n`);
       head.appendChild(tempItem2);
 
         break;
       case "image":
 
       // twitter image
-      var tempItem = HTMLParse.parse(`<meta name="twitter:image" content="${castData.meta[metaTag]}"/>`);
+      var tempItem = HTMLParser.parse(`<meta name="twitter:image" content="${castData.meta[metaTag]}"/>\n`);
       head.appendChild(tempItem);
 
       // opengraph image
-      var tempItem2 = HTMLParse.parse(`<meta property="og:image" content="${castData.meta[metaTag]}" />`);
+      var tempItem2 = HTMLParser.parse(`<meta property="og:image" content="${castData.meta[metaTag]}" />\n`);
       head.appendChild(tempItem2);
 
         break;
       case "alt":
 
       // twitter alt image
-      var tempItem = HTMLParse.parse(`<meta name="twitter:image:alt" content="${castData.meta[metaTag]}"/>`);
+      var tempItem = HTMLParser.parse(`<meta name="twitter:image:alt" content="${castData.meta[metaTag]}"/>\n`);
       head.appendChild(tempItem);
 
       // opengraph alt image
-      var tempItem2 = HTMLParse.parse(`<meta property="og:image:alt" content="${castData.meta[metaTag]}" />`);
+      var tempItem2 = HTMLParser.parse(`<meta property="og:image:alt" content="${castData.meta[metaTag]}" />\n`);
       head.appendChild(tempItem2);
 
         break;
       case "url":
 
       // opengraph url
-      var tempItem = HTMLParse.parse(`<meta name="og:url" content="${castData.meta[metaTag]}"/>`);
+      var tempItem = HTMLParser.parse(`<meta name="og:url" content="${castData.meta[metaTag]}"/>\n`);
       head.appendChild(tempItem);
 
         break;

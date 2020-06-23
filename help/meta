@@ -1,0 +1,17 @@
+
+USAGE
+
+  as the second argument of the command, put the relative path to the template html document.
+  as the third argument of the command, put the relative path to the casting json document.
+
+  if one of these two paths is invalid or undefined, you will receive this message again.
+
+  since statichog uses standard out for its output, you can pipe that data into another command, or a file (as shown below).
+
+  in the cast.json file, you must have an object that is named meta.
+    the children of this meta object must be valid.
+    check the reference if you do not understand what that means.
+
+EXAMPLE
+
+  statichog meta template.html cast.json > output.html
