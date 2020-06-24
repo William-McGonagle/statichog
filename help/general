@@ -1,6 +1,7 @@
 
 COMMANDS
 
+  meta
   replace
   compute
   batchReplace
